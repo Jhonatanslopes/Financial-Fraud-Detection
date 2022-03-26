@@ -10,16 +10,13 @@ import inflection
 class FraudDetection:
     def __init__(self):
         
-        # all path
-        self.path = 'C:/Users/Jhonatans/projects/ML/Classification/Financial-Fraud-Detection/src/'
-        
         # load transformation
-        self.mms_step = pickle.load(open(self.path + 'preparation/mms_step.pkl', 'rb'))  
-        self.rs_amount = pickle.load(open(self.path + 'preparation/rs_amount.pkl', 'rb'))
-        self.rs_oldbalance_org = pickle.load(open(self.path + 'preparation/rs_oldbalance_org.pkl', 'rb'))
-        self.rs_newbalance_orig = pickle.load(open(self.path + 'preparation/rs_newbalance_orig.pkl', 'rb'))
-        self.rs_oldbalance_dest = pickle.load(open(self.path + 'preparation/rs_oldbalance_dest.pkl', 'rb'))
-        self.rs_newbalance_dest = pickle.load(open(self.path + 'preparation/rs_newbalance_dest.pkl', 'rb'))
+        self.mms_step = pickle.load(open('preparation/mms_step.pkl', 'rb'))  
+        self.rs_amount = pickle.load(open('preparation/rs_amount.pkl', 'rb'))
+        self.rs_oldbalance_org = pickle.load(open('preparation/rs_oldbalance_org.pkl', 'rb'))
+        self.rs_newbalance_orig = pickle.load(open('preparation/rs_newbalance_orig.pkl', 'rb'))
+        self.rs_oldbalance_dest = pickle.load(open('preparation/rs_oldbalance_dest.pkl', 'rb'))
+        self.rs_newbalance_dest = pickle.load(open('preparation/rs_newbalance_dest.pkl', 'rb'))
         
     def cleaning(self, df):
         
@@ -77,7 +74,7 @@ class FraudDetection:
         #df = pd.get_dummies(df, prefix='type_transaction', columns=['type_transaction']) # type_transaction
         
         # apply min max scaler
-        df['step'] = self.mms_step.transform(df[['step']].values) # step
+        df['step'] = self.mms_step.transform(df[['step']].values) #  step
         
         # apply robust scaler
         df['amount'] = self.rs_amount.transform(df[['amount']].values) # amount
