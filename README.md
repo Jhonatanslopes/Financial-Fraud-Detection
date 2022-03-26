@@ -2,7 +2,7 @@
 
 # Financial-Fraud-Detection
 
-Previsão de interesse em um seguro de automóvel.
+Previsão de Fraude em Transações Financeiras.
 
 <p align="center">
   <img src="img/principal.jpg" width="1000" title="img-principal">
